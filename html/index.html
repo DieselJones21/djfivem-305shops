@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Envy Roleplay Shops</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Oswald:wght@500;600;700&family=Pacifico&family=Rajdhani:wght@600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <div class="preview-bar" id="previewBar" aria-label="Theme preview">
+        <button type="button" data-preview="envy">Envy</button>
+        <button type="button" data-preview="chrome">Chrome</button>
+        <button type="button" data-preview="lava">Lava</button>
+        <button type="button" data-preview="vice">Vice</button>
+        <button type="button" data-preview="gold">Gold</button>
+        <button type="button" data-preview="ice">Ice</button>
+        <button type="button" data-preview="sunset">Sunset</button>
+    </div>
+    <div id="app" class="hidden" aria-hidden="true">
+        <div class="shell">
+            <div class="fx-moon" aria-hidden="true"></div>
+            <div class="fx-skyline" aria-hidden="true">
+                <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+            </div>
+            <div class="fx-palms" aria-hidden="true">
+                <svg viewBox="0 0 120 140" fill="none">
+                    <path d="M38 138V72" stroke="url(#palmChrome)" stroke-width="4" stroke-linecap="round"/>
+                    <path d="M82 138V78" stroke="url(#palmChrome)" stroke-width="3.2" stroke-linecap="round"/>
+                    <path d="M38 74C8 68 2 40 18 22c8 22 16 34 20 52z" fill="url(#palmLeaf)"/>
+                    <path d="M38 74c32-8 40-36 26-56-6 24-16 38-26 56z" fill="url(#palmLeaf)"/>
+                    <path d="M38 70c-18 4-38-10-42-32 16 8 30 20 42 32z" fill="url(#palmLeaf)"/>
+                    <path d="M38 70c20 2 40-14 46-34-16 10-30 22-46 34z" fill="url(#palmLeaf)"/>
+                    <path d="M82 80C58 74 52 50 64 34c6 18 12 28 18 46z" fill="url(#palmLeaf)"/>
+                    <path d="M82 80c26-6 32-30 22-48-4 20-12 32-22 48z" fill="url(#palmLeaf)"/>
+                    <path d="M82 76c-14 4-30-8-34-24 12 6 22 14 34 24z" fill="url(#palmLeaf)"/>
+                    <defs>
+                        <linearGradient id="palmChrome" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="0%" stop-color="#f7fbff"/>
+                            <stop offset="100%" stop-color="#8a96a0"/>
+                        </linearGradient>
+                        <linearGradient id="palmLeaf" x1="0" y1="0" x2="1" y2="1">
+                            <stop offset="0%" stop-color="#f4feff"/>
+                            <stop offset="55%" stop-color="#c5d0d6"/>
+                            <stop offset="100%" stop-color="#7e8a92"/>
+                        </linearGradient>
+                    </defs>
+                </svg>
+            </div>
+            <div class="fx-swirl" aria-hidden="true"></div>
+            <div class="fx-sparkles" aria-hidden="true"></div>
+
+            <header class="topbar">
+                <div class="brand">
+                    <img class="brand-logo" id="brandLogo" src="img/envy-roleplay.webp" alt="Envy Roleplay" />
+                    <div class="brand-copy">
+                        <span class="brand-kicker">Envy Roleplay</span>
+                        <h1 id="shopName">Shop</h1>
+                        <p id="shopSubtitle">Store</p>
+                    </div>
+                </div>
+
+                <nav class="tabs" id="tabs"></nav>
+
+                <div class="profile">
+                    <div class="profile-text">
+                        <strong id="playerName">Customer</strong>
+                        <span>Customer</span>
+                    </div>
+                    <div class="avatar" id="avatar">C</div>
+                </div>
+            </header>
+
+            <section class="stats">
+                <article class="stat-card">
+                    <span class="stat-label">Cash On Hand</span>
+                    <div class="stat-row">
+                        <strong id="statCash">$0</strong>
+                        <span class="stat-badge">Wallet</span>
+                    </div>
+                </article>
+                <article class="stat-card">
+                    <span class="stat-label">Bank Balance</span>
+                    <div class="stat-row">
+                        <strong id="statBank">$0</strong>
+                        <span class="stat-badge">Account</span>
+                    </div>
+                </article>
+                <article class="stat-card">
+                    <span class="stat-label">Cart Total</span>
+                    <div class="stat-row">
+                        <strong id="statCart">$0</strong>
+                        <span class="stat-badge" id="cartCountPill">0 items</span>
+                    </div>
+                </article>
+            </section>
+
+            <section class="workspace">
+                <div class="catalog-panel">
+                    <div class="panel-head">
+                        <div>
+                            <h2>Catalog</h2>
+                            <p id="categoryHint">Browse available products</p>
+                        </div>
+                        <div class="head-actions">
+                            <label class="search">
+                                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 4a6 6 0 1 1 0 12 6 6 0 0 1 0-12zm0-2a8 8 0 1 0 4.9 14.3l4.4 4.4 1.4-1.4-4.4-4.4A8 8 0 0 0 10 2z"/></svg>
+                                <input id="search" type="search" placeholder="Search items" autocomplete="off" />
+                            </label>
+                            <div class="pills" id="paymentPills"></div>
+                        </div>
+                    </div>
+                    <div class="grid" id="grid"></div>
+                    <p class="empty hidden" id="empty">No items in this category.</p>
+                </div>
+
+                <aside class="cart-panel">
+                    <div class="panel-head">
+                        <div>
+                            <h2>Cart</h2>
+                            <p>Review and checkout</p>
+                        </div>
+                    </div>
+                    <div class="cart-list" id="cartList"></div>
+                    <p class="empty" id="cartEmpty">Your cart is empty.</p>
+                    <div class="checkout">
+                        <div class="checkout-row">
+                            <span>Method</span>
+                            <strong id="methodLabel">Cash</strong>
+                        </div>
+                        <div class="checkout-row total">
+                            <span>Total</span>
+                            <strong id="checkoutTotal">$0</strong>
+                        </div>
+                        <button id="checkoutBtn" class="buy-btn" type="button" disabled>Checkout</button>
+                    </div>
+                </aside>
+            </section>
+
+            <footer class="hint">
+                <span class="footer-brand" id="footerBrand">Envy Roleplay</span>
+                <span class="close-chip" id="closeHint">ESC (Close Shop)</span>
+            </footer>
+        </div>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
