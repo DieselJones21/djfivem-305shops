@@ -3,15 +3,15 @@ Theme = {}
 function Theme.HexToRgb(hex)
     hex = tostring(hex or ''):gsub('#', '')
     if #hex ~= 6 then
-        return 0, 229, 255
+        return 255, 45, 138
     end
-    return tonumber(hex:sub(1, 2), 16) or 0, tonumber(hex:sub(3, 4), 16) or 229, tonumber(hex:sub(5, 6), 16) or 255
+    return tonumber(hex:sub(1, 2), 16) or 255, tonumber(hex:sub(3, 4), 16) or 45, tonumber(hex:sub(5, 6), 16) or 138
 end
 
 function Theme.LinearGradient(angle, colors)
     angle = tonumber(angle) or 90
     if type(colors) ~= 'table' or #colors == 0 then
-        colors = { '#00e5ff' }
+        colors = { '#ff2d8a' }
     end
     local parts = {}
     local last = math.max(#colors - 1, 1)
@@ -37,7 +37,7 @@ function Theme.ResolveGradient(theme)
         end
     end
     if #cleaned == 0 then
-        cleaned = { '#f2ffff', '#00c8e0', '#3a4248' }
+        cleaned = { '#fff0f8', '#ff1a8c', '#3a3240' }
     end
     local glow = grad.glow or cleaned[math.max(1, math.ceil(#cleaned / 2))]
     return {

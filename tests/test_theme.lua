@@ -40,21 +40,21 @@ local custom = Theme.Build(Config.Theme)
 if custom.preset ~= 'custom' then fail('custom preset') end
 if custom.accentFill:find('#111111', 1, true) == nil then fail('custom color') end
 
-Config.Theme.preset = 'envy'
-Config.Theme.logo = 'img/envy-roleplay.webp'
-Config.Theme.appName = 'Envy'
-Config.Theme.appTag = 'Roleplay'
-Config.Theme.Presets.envy = {
+Config.Theme.preset = 'the305'
+Config.Theme.logo = 'img/the-305.webp'
+Config.Theme.appName = 'The'
+Config.Theme.appTag = '305'
+Config.Theme.Presets.the305 = {
     angle = 125,
-    colors = { '#f2ffff', '#00fff6', '#00c8e0', '#d8dee2', '#3a4248' },
-    inkOnAccent = '#031014',
-    glow = '#00e5ff',
+    colors = { '#fff0f8', '#ff5ec4', '#ff1a8c', '#e8eef4', '#3a3240' },
+    inkOnAccent = '#14010c',
+    glow = '#ff2d8a',
 }
-local envy = Theme.Build(Config.Theme)
-if envy.preset ~= 'envy' then fail('envy preset') end
-if envy.accentFill:find('#00fff6', 1, true) == nil then fail('missing cyan stop') end
-if envy.onAccent ~= '#031014' then fail('envy ink') end
-if envy.logo ~= 'img/envy-roleplay.webp' then fail('envy logo') end
-if envy.glow ~= '#00e5ff' then fail('envy glow') end
+local the305 = Theme.Build(Config.Theme)
+if the305.preset ~= 'the305' then fail('305 preset') end
+if the305.accentFill:find('#ff1a8c', 1, true) == nil then fail('missing pink stop') end
+if the305.onAccent ~= '#14010c' then fail('305 ink') end
+if the305.logo ~= 'img/the-305.webp' then fail('305 logo') end
+if the305.glow ~= '#ff2d8a' then fail('305 glow') end
 
 print('ok')

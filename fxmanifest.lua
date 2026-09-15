@@ -4,7 +4,7 @@ lua54 'yes'
 
 name 'djfivem-305shops'
 author 'DieselJones21'
-description 'Ped-based shops for ox_inventory, themed for Envy Roleplay (neon cyan + chrome)'
+description 'Ped-based shops for ox_inventory, themed for The 305 (hot pink + chrome)'
 version '1.0.0'
 
 shared_scripts {
@@ -28,6 +28,7 @@ files {
     'html/index.html',
     'html/style.css',
     'html/app.js',
+    'html/img/the-305.webp',
     'html/img/envy-roleplay.webp',
     'html/img/dj-fivem-scripts.webp',
 }
