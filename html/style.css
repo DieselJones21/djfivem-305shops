@@ -1,20 +1,20 @@
 :root {
-    --ink: #f4f8fb;
+    --ink: #f8f4f7;
     --text: var(--ink);
-    --muted: #7f97a0;
-    --line: rgba(0, 229, 255, 0.16);
+    --muted: #a07f93;
+    --line: rgba(255, 45, 138, 0.18);
     --border: var(--line);
-    --paper: #0c1012;
-    --wash: #07090a;
+    --paper: #100c10;
+    --wash: #0a0709;
     --screen: #000000;
     --bg: var(--screen);
-    --panel: rgba(8, 12, 14, 0.88);
-    --card: #0b1012;
-    --card-2: #12181b;
-    --accent-rgb: 0, 229, 255;
-    --on-accent: #031014;
-    --accent: linear-gradient(125deg, #f2ffff 0%, #00fff6 22%, #00c8e0 48%, #d8dee2 74%, #3a4248 100%);
-    --accent-v: linear-gradient(180deg, #f2ffff 0%, #00fff6 22%, #00c8e0 48%, #d8dee2 74%, #3a4248 100%);
+    --panel: rgba(14, 8, 12, 0.88);
+    --card: #120b10;
+    --card-2: #1b1218;
+    --accent-rgb: 255, 45, 138;
+    --on-accent: #14010c;
+    --accent: linear-gradient(125deg, #fff0f8 0%, #ff5ec4 22%, #ff1a8c 48%, #e8eef4 74%, #3a3240 100%);
+    --accent-v: linear-gradient(180deg, #fff0f8 0%, #ff5ec4 22%, #ff1a8c 48%, #e8eef4 74%, #3a3240 100%);
     --glow: 0 0 22px rgba(var(--accent-rgb), 0.42);
     --radius: 16px;
     --radius-sm: 12px;
@@ -22,9 +22,9 @@
     --shadow: 0 28px 80px rgba(0, 0, 0, 0.78);
     --heading: Oswald, Rajdhani, Inter, sans-serif;
     --script: Pacifico, cursive;
-    --bezel-top: #dfe6ea;
-    --bezel-mid: #7b868e;
-    --bezel-bottom: #1a1e22;
+    --bezel-top: #f4e8ef;
+    --bezel-mid: #8e7b86;
+    --bezel-bottom: #1e1a1c;
     --chrome: linear-gradient(180deg, #f7fbff 0%, #c5ced4 42%, #8a949c 68%, #f4f7fa 100%);
 }
 
@@ -79,8 +79,8 @@ body.preview,
     background:
         radial-gradient(ellipse 70% 38% at 78% -6%, rgba(var(--accent-rgb), 0.22), transparent 62%),
         radial-gradient(ellipse 50% 30% at 8% 0%, rgba(255, 255, 255, 0.06), transparent 55%),
-        linear-gradient(180deg, #050607 0%, #000000 42%, #020406 100%);
-    border: 1.5px solid rgba(0, 229, 255, 0.45);
+        linear-gradient(180deg, #12080e 0%, #000000 42%, #0a0408 100%);
+    border: 1.5px solid rgba(255, 45, 138, 0.5);
     border-radius: 24px;
     box-shadow:
         0 0 0 1px rgba(255, 255, 255, 0.08) inset,
@@ -101,7 +101,7 @@ body.preview,
     pointer-events: none;
     border-radius: inherit;
     padding: 1.5px;
-    background: linear-gradient(135deg, #f4f8fb 0%, #9aa7b0 22%, #00e5ff 48%, #c5ced4 78%, #4a545c 100%);
+    background: linear-gradient(135deg, #f4f8fb 0%, #9aa7b0 22%, #ff2d8a 48%, #c5ced4 78%, #4a545c 100%);
     -webkit-mask:
         linear-gradient(#000 0 0) content-box,
         linear-gradient(#000 0 0);
@@ -138,7 +138,7 @@ body.preview,
     height: 168px;
     border-radius: 50%;
     background:
-        radial-gradient(circle at 38% 38%, #f4feff 0%, #00e5ff 38%, #007a8c 72%, transparent 76%);
+        radial-gradient(circle at 38% 38%, #fff4fb 0%, #ff2d8a 38%, #8c004e 72%, transparent 76%);
     filter: blur(0.2px);
     box-shadow: 0 0 70px rgba(var(--accent-rgb), 0.55);
     opacity: 0.55;
@@ -157,7 +157,7 @@ body.preview,
 .fx-skyline i {
     display: block;
     width: 10px;
-    background: linear-gradient(180deg, rgba(0, 229, 255, 0.35), #05080a 78%);
+    background: linear-gradient(180deg, rgba(255, 45, 138, 0.4), #0a0508 78%);
     box-shadow: 0 0 8px rgba(var(--accent-rgb), 0.2);
 }
 
@@ -204,10 +204,10 @@ body.preview,
     inset: 0;
     background-image:
         radial-gradient(circle at 18% 22%, #fff 0 1px, transparent 2px),
-        radial-gradient(circle at 72% 16%, #00e5ff 0 1.4px, transparent 3px),
+        radial-gradient(circle at 72% 16%, #ff2d8a 0 1.4px, transparent 3px),
         radial-gradient(circle at 88% 38%, #fff 0 1px, transparent 2px),
-        radial-gradient(circle at 12% 68%, #cfe8ee 0 1px, transparent 2px),
-        radial-gradient(circle at 64% 84%, #00e5ff 0 1px, transparent 2px);
+        radial-gradient(circle at 12% 68%, #f0cfe0 0 1px, transparent 2px),
+        radial-gradient(circle at 64% 84%, #ff5ec4 0 1px, transparent 2px);
     opacity: 0.7;
 }
 
@@ -233,7 +233,7 @@ body.preview,
 .brand-logo {
     height: 78px;
     width: auto;
-    max-width: 148px;
+    max-width: 170px;
     object-fit: contain;
     filter: drop-shadow(0 0 14px rgba(var(--accent-rgb), 0.55));
 }

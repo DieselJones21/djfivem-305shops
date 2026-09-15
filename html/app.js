@@ -35,6 +35,13 @@ function parentResource() {
 }
 
 const previewThemes = {
+    the305: {
+        gradientAngle: 125,
+        gradientColors: ['#fff0f8', '#ff5ec4', '#ff1a8c', '#e8eef4', '#3a3240'],
+        onAccent: '#14010c',
+        glow: '#ff2d8a',
+        preset: 'the305',
+    },
     envy: {
         gradientAngle: 125,
         gradientColors: ['#f2ffff', '#00fff6', '#00c8e0', '#d8dee2', '#3a4248'],
@@ -188,6 +195,9 @@ const tabIcons = {
     breaching: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2 4 14h7l-1 8 10-14h-7l0-6z"/></svg>',
     packaging: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7l9-4 9 4v10l-9 4-9-4V7zm9 2 7-3-7-3-7 3 7 3z"/></svg>',
     supplies: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3h10l1 5H6l1-5zm-1 7h12v11H6V10zm3 2v7h2v-7H9zm4 0v7h2v-7h-2z"/></svg>',
+    melee: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20 14.5 9.5l2 2L6 22H4v-2zm11.1-12.3 2.1-2.1 2.8 2.8-2.1 2.1-2.8-2.8zM17.8 3.2 20.8 6.2 19 8l-3-3 1.8-1.8z"/></svg>',
+    armor: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 4 6v6c0 5.2 3.4 9.4 8 10.5C16.6 21.4 20 17.2 20 12V6l-8-4zm0 3.2 5 2.4v4.4c0 3.6-2.2 6.6-5 7.6-2.8-1-5-4-5-7.6V7.6l5-2.4z"/></svg>',
+    firstaid: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 3h8v4h5v14H3V7h5V3zm2 2v4H5v10h14V9h-5V5h-4zm1 7h2v2h2v2h-2v2h-2v-2h-2v-2h2v-2z"/></svg>',
 };
 
 function nui(name, data) {
@@ -495,31 +505,30 @@ function previewPayload() {
 
     return {
         shop: { label: '24/7', subtitle: 'Supermarket', location: 'Innocence Blvd' },
-        resourceLabel: 'Envy Roleplay',
+        resourceLabel: 'The 305',
         closeHint: 'ESC (Close Shop)',
         payments: ['cash', 'bank'],
         player: { name: 'Alex Reyes', cash: 3510, bank: 12450 },
         categories: [
             { id: 'food', label: 'Food' },
             { id: 'drinks', label: 'Drinks' },
-            { id: 'vapes', label: 'Vapes' },
+            { id: 'firstaid', label: 'First Aid' },
+            { id: 'supplies', label: 'Supplies' },
         ],
         items: [
-            { name: 'sandwich', label: 'Sandwich', price: 4, category: 'food', image: image('food') },
-            { name: 'cooking_ingredients', label: 'Cooking Ingredients', price: 4, category: 'food', image: image('cook') },
-            { name: 'water', label: 'Water', price: 2, category: 'drinks', image: image('water') },
-            { name: 'ecola', label: 'eCola', price: 3, category: 'drinks', image: image('ecola') },
-            { name: 'vape', label: 'Vape Kit', price: 70, category: 'vapes', image: image('vape') },
-            { name: 'vape_refill_strawberry', label: 'Strawberry Vape Juice', price: 15, category: 'vapes', image: image('juice') },
-            { name: 'vape_elfbar_blueberry', label: 'Elfbar Blueberry', price: 20, category: 'vapes', image: image('elf') },
-            { name: 'vape_elfbar_mango', label: 'Elfbar Mango', price: 20, category: 'vapes', image: image('elf') },
+            { name: 'burger', label: 'Burger', price: 10, category: 'food', image: image('burger') },
+            { name: 'mustard', label: 'Mustard', price: 8, category: 'food', image: image('must') },
+            { name: 'water', label: 'Water', price: 10, category: 'drinks', image: image('water') },
+            { name: 'sprunk', label: 'Sprunk', price: 10, category: 'drinks', image: image('sprunk') },
+            { name: 'bandage', label: 'Bandage', price: 15, category: 'firstaid', image: image('band') },
+            { name: 'paperbag', label: 'Paper Bag', price: 5, category: 'supplies', image: image('bag') },
         ],
         maxQuantity: 25,
         theme: Object.assign({
-            appName: 'Envy',
-            appTag: 'Roleplay',
-            logo: 'img/envy-roleplay.webp',
-        }, previewThemes.envy),
+            appName: 'The',
+            appTag: '305',
+            logo: 'img/the-305.webp',
+        }, previewThemes.the305),
     };
 }
 
@@ -531,9 +540,9 @@ if (isBrowserPreview()) {
         const btn = event.target.closest('[data-preview]');
         if (!btn) return;
         const next = Object.assign({}, previewThemes[btn.dataset.preview]);
-        next.appName = 'Envy';
-        next.appTag = 'Roleplay';
-        next.logo = 'img/envy-roleplay.webp';
+        next.appName = 'The';
+        next.appTag = '305';
+        next.logo = 'img/the-305.webp';
         applyTheme(next);
     });
     openUi(previewPayload());

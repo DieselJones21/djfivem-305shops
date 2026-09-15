@@ -1,6 +1,6 @@
 --[[
-    Shop catalogs use the server item names from the provided list.
-    Prices can be changed here without touching anything else.
+    Shop catalogs use stock ox_inventory / QBX item names only.
+    Custom items can be added later without changing shop locations.
     Missing ox_inventory items are hidden automatically.
 ]]
 
@@ -12,80 +12,60 @@ local function I(name, price, category, extra)
     return item
 end
 
+-- ox_inventory/data/items.lua (QBX does not ship extra shop items)
 local generalItems = {
-    I('sandwich', 4, 'food'),
-    I('water', 2, 'drinks'),
-    I('ecola', 3, 'drinks'),
-    I('cooking_ingredients', 4, 'food'),
-    I('drink_ingredients', 2, 'drinks'),
-    I('smoking_ingredients', 3, 'drinks'),
-    I('vape', 70, 'vapes'),
-    I('vape_refill_strawberry', 15, 'vapes'),
-    I('vape_refill_reallyberry', 15, 'vapes'),
-    I('vape_refill_coconutlimeade', 15, 'vapes'),
-    I('vape_refill_mint', 15, 'vapes'),
-    I('vape_refill_mango', 15, 'vapes'),
-    I('vape_refill_apple', 15, 'vapes'),
-    I('vape_refill_pineapple', 15, 'vapes'),
-    I('vape_refill_lavaflow', 15, 'vapes'),
-    I('vape_refill_allmelon', 15, 'vapes'),
-    I('vape_refill_lemon', 15, 'vapes'),
-    I('vape_refill_peach', 15, 'vapes'),
-    I('vape_elfbar_blueberry', 20, 'vapes'),
-    I('vape_elfbar_cola', 20, 'vapes'),
-    I('vape_elfbar_grape', 20, 'vapes'),
-    I('vape_elfbar_kiwi', 20, 'vapes'),
-    I('vape_elfbar_mango', 20, 'vapes'),
-    I('vape_elfbar_melon', 20, 'vapes'),
-    I('vape_elfbar_strawberry', 20, 'vapes'),
+    I('burger', 10, 'food'),
+    I('water', 10, 'drinks'),
+    I('sprunk', 10, 'drinks'),
+    I('mustard', 8, 'food'),
+    I('paperbag', 5, 'supplies'),
+    I('bandage', 15, 'firstaid'),
+}
+
+local liquorItems = {
+    I('burger', 15, 'food'),
+    I('water', 10, 'drinks'),
+    I('sprunk', 10, 'drinks'),
 }
 
 local youtoolItems = {
     I('lockpick', 150, 'tools'),
-    I('repair_kit', 250, 'tools'),
-    I('dono_paint_remover', 400, 'tools'),
+    I('scrapmetal', 25, 'supplies'),
+    I('WEAPON_CROWBAR', 200, 'tools'),
+    I('WEAPON_HAMMER', 150, 'tools'),
+    I('WEAPON_FLASHLIGHT', 120, 'tools'),
+    I('WEAPON_FIREEXTINGUISHER', 250, 'tools'),
 }
 
 local digitalItems = {
     I('phone', 850, 'phones'),
     I('radio', 250, 'comms'),
-    I('gambling_tablet', 3000, 'electronics'),
 }
 
 local ammunationItems = {
-    I('WEAPON_APPISTOL', 4500, 'pistols', { license = 'weapon', metadata = { registered = true } }),
-    I('WEAPON_ASSAULTRIFLE', 8500, 'rifles', { license = 'weapon', metadata = { registered = true } }),
-    I('WEAPON_PUMPSHOTGUN', 3500, 'shotguns', { license = 'weapon', metadata = { registered = true } }),
+    I('WEAPON_KNIFE', 200, 'melee'),
+    I('WEAPON_BAT', 100, 'melee'),
+    I('WEAPON_PISTOL', 1000, 'pistols', { license = 'weapon', metadata = { registered = true } }),
     I('ammo-9', 5, 'ammo'),
-    I('ammo-44', 8, 'ammo'),
-    I('ammo-rifle', 10, 'ammo'),
-    I('ammo-rifle2', 12, 'ammo'),
-    I('ammo-shotgun', 8, 'ammo'),
-    I('ammo-bb', 3, 'ammo'),
+    I('armour', 500, 'armor'),
+}
+
+local pharmacyItems = {
+    I('bandage', 15, 'firstaid'),
 }
 
 local robberyItems = {
-    I('robbery_tablet', 3500, 'electronics'),
     I('lockpick', 250, 'tools'),
-    I('drill', 3500, 'tools'),
-    I('electronickit', 2500, 'electronics'),
-    I('thermite', 4000, 'breaching'),
-    I('crowbar', 200, 'tools'),
-    I('laundry_card', 200, 'tools'),
-}
-
-local drugItems = {
-    I('baggies', 5, 'packaging'),
-    I('acetone', 25, 'supplies'),
-    I('cups', 3, 'packaging'),
-    I('sprite', 4, 'supplies'),
-    I('hard_candies', 3, 'supplies'),
+    I('WEAPON_CROWBAR', 250, 'tools'),
+    I('WEAPON_DAGGER', 400, 'melee'),
+    I('scrapmetal', 40, 'supplies'),
 }
 
 local convenienceCategories = {
     { id = 'food', label = 'Food' },
     { id = 'drinks', label = 'Drinks' },
-    { id = 'vapes', label = 'Vapes' },
+    { id = 'firstaid', label = 'First Aid' },
+    { id = 'supplies', label = 'Supplies' },
 }
 
 Config.Shops = {
@@ -139,8 +119,11 @@ Config.Shops = {
         payments = { 'cash', 'bank' },
         blip = { sprite = 93, color = 1, label = 'Rob\'s Liquor' },
         ped = { model = 'mp_m_shopkeep_01', scenario = 'WORLD_HUMAN_STAND_MOBILE' },
-        categories = convenienceCategories,
-        items = generalItems,
+        categories = {
+            { id = 'food', label = 'Food' },
+            { id = 'drinks', label = 'Drinks' },
+        },
+        items = liquorItems,
         locations = {
             { label = 'San Andreas Ave', coords = vector4(-1221.58, -908.15, 12.33, 35.49) },
             { label = 'Prosperity St', coords = vector4(-1486.59, -377.68, 40.16, 139.51) },
@@ -159,10 +142,10 @@ Config.Shops = {
         blip = { sprite = 110, color = 1, label = 'Ammunation' },
         ped = { model = 's_m_y_ammucity_01', scenario = 'WORLD_HUMAN_COP_IDLES' },
         categories = {
+            { id = 'melee', label = 'Melee' },
             { id = 'pistols', label = 'Pistols' },
-            { id = 'rifles', label = 'Rifles' },
-            { id = 'shotguns', label = 'Shotguns' },
             { id = 'ammo', label = 'Ammo' },
+            { id = 'armor', label = 'Armor' },
         },
         items = ammunationItems,
         locations = {
@@ -190,6 +173,7 @@ Config.Shops = {
         ped = { model = 'mp_m_waremech_01', scenario = 'WORLD_HUMAN_CLIPBOARD' },
         categories = {
             { id = 'tools', label = 'Tools' },
+            { id = 'supplies', label = 'Supplies' },
         },
         items = youtoolItems,
         locations = {
@@ -210,7 +194,6 @@ Config.Shops = {
         categories = {
             { id = 'phones', label = 'Phones' },
             { id = 'comms', label = 'Comms' },
-            { id = 'electronics', label = 'Electronics' },
         },
         items = digitalItems,
         locations = {
@@ -225,14 +208,14 @@ Config.Shops = {
         label = 'Pharmacy',
         subtitle = 'Medical',
         interactLabel = 'Open Pharmacy',
-        enabled = false, -- no pharmacy items were in the item list yet
+        enabled = true,
         payments = { 'cash', 'bank' },
         blip = { sprite = 51, color = 1, label = 'Pharmacy' },
         ped = { model = 's_m_m_doctor_01', scenario = 'WORLD_HUMAN_CLIPBOARD' },
         categories = {
             { id = 'firstaid', label = 'First Aid' },
         },
-        items = {},
+        items = pharmacyItems,
         locations = {
             { label = 'Pillbox Hill', coords = vector4(318.91, -1078.65, 29.47, 339.20) },
             { label = 'Downtown Vinewood', coords = vector4(114.45, -4.85, 67.82, 163.0) },
@@ -252,8 +235,8 @@ Config.Shops = {
         ped = { model = 'g_m_y_lost_01', scenario = 'WORLD_HUMAN_AA_SMOKE' },
         categories = {
             { id = 'tools', label = 'Tools' },
-            { id = 'electronics', label = 'Electronics' },
-            { id = 'breaching', label = 'Breaching' },
+            { id = 'melee', label = 'Melee' },
+            { id = 'supplies', label = 'Supplies' },
         },
         items = robberyItems,
         locations = {
@@ -266,7 +249,7 @@ Config.Shops = {
         label = 'Street Chemist',
         subtitle = 'Drug Supplies',
         interactLabel = 'Talk to Chemist',
-        enabled = true,
+        enabled = false, -- no base QBX chemist items yet
         illegal = true,
         payments = { 'cash', 'black_money' },
         blip = false,
@@ -275,7 +258,7 @@ Config.Shops = {
             { id = 'packaging', label = 'Packaging' },
             { id = 'supplies', label = 'Supplies' },
         },
-        items = drugItems,
+        items = {},
         locations = {
             { label = 'Cypress Flats', coords = vector4(970.15, -1810.88, 31.24, 85.0) },
             { label = 'Forum Drive', coords = vector4(-32.18, -1432.76, 31.70, 270.0) },

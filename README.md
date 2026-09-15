@@ -1,24 +1,24 @@
 # djfivem-305shops
 
-Ped-based shops for **ox_inventory**, themed for **Envy Roleplay** (neon cyan, chrome silver, and black). Same shop catalogs and checkout flow as djfivem-shops, with the Envy wordmark and Miami night-sky NUI.
+Ped-based shops for **ox_inventory**, themed for **The 305** (hot pink, chrome silver, and black). Catalogs currently use **stock QBX / ox_inventory items** so stores work on a fresh Qbox box until you add custom items.
 
 ## Shops
 
 | Shop | What it sells | Locations |
 | --- | --- | --- |
-| 24/7 | Food, drinks, ingredients, vape kits / juice / Elfbars | All vanilla 24/7 clerks |
+| 24/7 | `burger`, `water`, `sprunk`, `mustard`, `paperbag`, `bandage` | All vanilla 24/7 clerks |
 | LTD Gasoline | Same convenience catalog as 24/7 | Grove, Little Seoul, Richman, Mirror Park, Grapeseed |
-| Rob's Liquor | Same convenience catalog as 24/7 | All Rob's Liquor clerks |
-| Ammunation | `WEAPON_APPISTOL`, `WEAPON_ASSAULTRIFLE`, `WEAPON_PUMPSHOTGUN`, `ammo-9`, `ammo-44`, `ammo-rifle`, `ammo-rifle2`, `ammo-shotgun`, `ammo-bb` | All 11 Ammunation clerks |
-| YouTool | `lockpick`, `repair_kit`, `dono_paint_remover` | Davis (`68.84, -1570.16, 29.60, 55.97`), Harmony, Paleto |
-| Digital Den | `phone`, `radio`, `gambling_tablet` | Legion, Mirror Park, Rockford, Little Seoul |
-| Pharmacy | Disabled until medical items are added | Pillbox, Vinewood, Sandy, Paleto |
-| The Backroom | `robbery_tablet`, `lockpick`, `drill`, `electronickit`, `thermite`, `crowbar`, `laundry_card` | Hidden peds, no blip |
-| Street Chemist | `baggies`, `acetone`, `cups`, `sprite`, `hard_candies` | Hidden peds, no blip |
+| Rob's Liquor | `burger`, `water`, `sprunk` | All Rob's Liquor clerks |
+| Ammunation | `WEAPON_KNIFE`, `WEAPON_BAT`, `WEAPON_PISTOL` (weapon license), `ammo-9`, `armour` | All 11 Ammunation clerks |
+| YouTool | `lockpick`, `scrapmetal`, `WEAPON_CROWBAR`, `WEAPON_HAMMER`, `WEAPON_FLASHLIGHT`, `WEAPON_FIREEXTINGUISHER` | Davis, Harmony, Paleto |
+| Digital Den | `phone`, `radio` | Legion, Mirror Park, Rockford, Little Seoul |
+| Pharmacy | `bandage` | Pillbox, Vinewood, Sandy, Paleto |
+| The Backroom | `lockpick`, `WEAPON_CROWBAR`, `WEAPON_DAGGER`, `scrapmetal` | Hidden peds, no blip |
+| Street Chemist | Disabled until custom chemist items are added | Hidden peds, no blip |
 
 Every location uses a frozen invincible ped. Legal shops have red-tinted map blips. Illegal shops do not.
 
-Ammunation firearms require a `weapon` license. Ammo does not. Missing licenses are shown in the UI and blocked on the server.
+Ammunation pistols require a `weapon` license. Melee, ammo, and armour do not.
 
 ## Requirements
 
@@ -49,10 +49,10 @@ ensure djfivem-305shops
 
 ## Theme
 
-The NUI defaults to the **Envy Roleplay** look: black panels, neon cyan glow, chrome borders, palm trees, and the Envy logo.
+The NUI defaults to **The 305** look: black panels, hot-pink glow, chrome borders, and the 305 logo.
 
 ```lua
-Config.Theme.preset = 'envy' -- envy | chrome | lava | vice | gold | ice | sunset
+Config.Theme.preset = 'the305' -- the305 | envy | chrome | lava | vice | gold | ice | sunset
 ```
 
 Leave `preset = ''` and fill `Config.Theme.gradient` for a custom blend (`colors`, `angle`, `inkOnAccent`, `glow`). The NUI applies those values as CSS variables when a shop opens.
@@ -61,7 +61,7 @@ Leave `preset = ''` and fill `Config.Theme.gradient` for a custom blend (`colors
 
 - **Cash** comes from the ox_inventory `money` item by default.
 - **Bank** removes player bank money through qbx / qb / ESX, then logs a withdraw on **Renewed-Banking**.
-- Robbery and drug shops also accept **dirty money** (`black_money`).
+- Robbery shops also accept **dirty money** (`black_money`).
 
 If your cash is on the framework account instead of the `money` item:
 
@@ -71,16 +71,14 @@ Config.Money.cash = 'framework'
 
 ## Items
 
-Catalogs live in `config/shops.lua` and use the server item names listed above. Change `price` next to each item as needed.
+Catalogs live in `config/shops.lua` and use the stock ox_inventory names listed above. Add your custom items there when you are ready.
 
 **Items that are not registered in ox_inventory are hidden automatically.**
-
-Pharmacy is in the config but disabled (`enabled = false`) because no medical items were in the list. Send those names and it can be turned on.
 
 Weapon metadata example:
 
 ```lua
-I('WEAPON_APPISTOL', 4500, 'pistols', { license = 'weapon', metadata = { registered = true } })
+I('WEAPON_PISTOL', 1000, 'pistols', { license = 'weapon', metadata = { registered = true } })
 ```
 
 Images load from `nui://ox_inventory/web/images/`. Change `Config.ImagePath` if your icons live somewhere else.

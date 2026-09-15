@@ -1,7 +1,7 @@
 Config = {}
 
 -- Resource display name used in the UI header when a shop does not override it.
-Config.ResourceLabel = 'Envy Roleplay'
+Config.ResourceLabel = 'The 305'
 
 -- How players interact with shop peds.
 -- 'interact'  = darktrovx/interact (recommended)
@@ -44,26 +44,32 @@ Config.CloseHint = 'ESC (Close Shop)'
     Shop look. Values are pushed into CSS variables when the UI opens.
 
     `preset` picks a named multi-stop gradient from Config.Theme.Presets.
-    Envy Roleplay default is `envy` (neon cyan + chrome). Other presets:
-    chrome | lava | vice | gold | ice | sunset
+    The 305 default is `the305` (hot pink + chrome). Other presets:
+    envy | chrome | lava | vice | gold | ice | sunset
     Leave preset = '' and fill `gradient` yourself for a fully custom blend.
     `inkOnAccent` is the text/icon color sitting on gradient fills
-    (use a dark color on chrome/gold/envy, white on neon).
+    (use a dark color on chrome/gold/the305, white on neon).
 ]]
 Config.Theme = {
-    appName = 'Envy',
-    appTag = 'Roleplay',
-    logo = 'img/envy-roleplay.webp',
-    preset = 'envy', -- envy | chrome | lava | vice | gold | ice | sunset | ''
+    appName = 'The',
+    appTag = '305',
+    logo = 'img/the-305.webp',
+    preset = 'the305', -- the305 | envy | chrome | lava | vice | gold | ice | sunset | ''
 
     gradient = {
         angle = 125,
-        colors = { '#f2ffff', '#00fff6', '#00c8e0', '#d8dee2', '#3a4248' },
-        inkOnAccent = '#031014',
-        glow = '#00e5ff',
+        colors = { '#fff0f8', '#ff5ec4', '#ff1a8c', '#e8eef4', '#3a3240' },
+        inkOnAccent = '#14010c',
+        glow = '#ff2d8a',
     },
 
     Presets = {
+        the305 = {
+            angle = 125,
+            colors = { '#fff0f8', '#ff5ec4', '#ff1a8c', '#e8eef4', '#3a3240' },
+            inkOnAccent = '#14010c',
+            glow = '#ff2d8a',
+        },
         envy = {
             angle = 125,
             colors = { '#f2ffff', '#00fff6', '#00c8e0', '#d8dee2', '#3a4248' },
@@ -108,18 +114,18 @@ Config.Theme = {
         },
     },
 
-    ink = '#f4f8fb',
-    muted = '#7f97a0',
+    ink = '#f8f4f7',
+    muted = '#a07f93',
     screen = '#000000',
-    paper = '#0c1012',
-    wash = '#07090a',
-    panel = '#080c0e',
-    card = '#0b1012',
-    card2 = '#12181b',
-    line = 'rgba(0, 229, 255, 0.16)',
-    bezelTop = '#dfe6ea',
-    bezelMid = '#7b868e',
-    bezelBottom = '#1a1e22',
+    paper = '#100c10',
+    wash = '#0a0709',
+    panel = '#0e080c',
+    card = '#120b10',
+    card2 = '#1b1218',
+    line = 'rgba(255, 45, 138, 0.18)',
+    bezelTop = '#f4e8ef',
+    bezelMid = '#8e7b86',
+    bezelBottom = '#1e1a1c',
 }
 
 Config.Notify = {
